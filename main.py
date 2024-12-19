@@ -28,8 +28,7 @@ def main():
         player.draw(screen)
 
         player.update(dt)
-        
-        
+ 
         pygame.display.flip()
 
 

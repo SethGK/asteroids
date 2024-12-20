@@ -1,10 +1,12 @@
 import pygame
+import sys
 pygame.init()
 
 from constants import *
 from player import Player
 from asteroids import Asteroid
 from asteroidfield import AsteroidField
+from circleshape import CircleShape
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
@@ -42,6 +44,11 @@ def main():
         
         for j in drawable:
             j.draw(screen)
+
+        for k in asteroids:
+            if k.collisions(player):
+                print("Game Over!")
+                sys.exit()
         
         
         pygame.display.flip()

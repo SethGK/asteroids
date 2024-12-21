@@ -47,9 +47,9 @@ def main():
         
         for i in updateable:
             if isinstance(i, Player):
-                i.update(dt, shots)  # Pass both dt and the shots group
+                i.update(dt, shots)  
             else:
-                i.update(dt)  # For other objects, just pass dt)
+                i.update(dt) 
         
         for j in drawable:
             j.draw(screen)  
@@ -60,8 +60,8 @@ def main():
                 sys.exit()
         
         for shot in shots:
-            shot.update(dt)  # Update each shot
-            shot.draw(screen)  # Draw each shot
+            shot.update(dt) 
+            shot.draw(screen)  
 
 
         pygame.display.flip()

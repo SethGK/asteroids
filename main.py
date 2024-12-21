@@ -58,9 +58,13 @@ def main():
             if k.collisions(player):
                 print("Game Over!")
                 sys.exit()
-        
+            for shot in shots:
+                if k.collisions(shot):
+                    k.kill()
+                    shot.kill()
+                    
         for shot in shots:
-            shot.update(dt) 
+            shot.update(dt)
             shot.draw(screen)  
 
 

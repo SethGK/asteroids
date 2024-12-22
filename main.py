@@ -12,7 +12,7 @@ from shot import Shot
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 clock = pygame.time.Clock()
-dt = 0
+
 
 def main():
     print("Starting asteroids!")
@@ -33,7 +33,8 @@ def main():
     player = Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
     asteroidfield = AsteroidField()
     
-    dt = clock.tick(60)/10000
+    dt = 0 
+
     while True:
         
         for event in pygame.event.get():
@@ -60,16 +61,18 @@ def main():
                 sys.exit()
             for shot in shots:
                 if k.collisions(shot):
+                    k.split() 
                     k.kill()
                     shot.kill()
+                             
                     
         for shot in shots:
             shot.update(dt)
             shot.draw(screen)  
 
-
+        
         pygame.display.flip()
-
+        dt = clock.tick(60)/1000
 
 if __name__ == "__main__":
     main()
